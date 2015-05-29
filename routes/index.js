@@ -8,8 +8,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/command', function(req, res, next){
 
-  console.log(req.query);
-  res.send(200).end();
+  res.send('He got an upvote'+req.query.text).end();
 
 });
 
