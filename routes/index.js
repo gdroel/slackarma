@@ -14,6 +14,7 @@ router.post('/add', function(req, res, next){
   console.log(req.body);
 
   var name = req.body.text;
+  console.log("REQ BODY TEXT"+req.body.text)
   var team = req.body.team_id;
   name = name.split('++');
   name = name[0];
