@@ -11,15 +11,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/add', function(req, res, next){
 
-  console.log(req.body);
-
   var name = req.body.text;
   console.log("REQ BODY TEXT"+req.body.text)
   var team = req.body.team_id;
   // name = name.split('++ ');
   // name = name[0];
   // name = name.replace(/\s/g, '');
-  name = name.trim("++ ");
+  name = name.replace("++ ", "")
   console.log(name);
 
   var queryString = "SELECT * FROM users WHERE name = '"+name+"' and team = '"+team+"'";
