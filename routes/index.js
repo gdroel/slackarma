@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/slackrep';
 
@@ -8,16 +9,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/command', function(req, res, next){
+router.post('/add', function(req, res, next){
 
-  res.send('You gave a rep point to '+req.query.text);
+  console.log(req.body);
 
-});
-
-router.get('/add', function(req, res, next){
-
-  var name = req.query.text.split('++ ');
-  var team = req.query.team_id;
+  var name = req.body.text.split('++ ');
+  var team = req.body.team_id;
   name = name[0];
   name = name.replace(/\s/g, '');
   console.log(name);
