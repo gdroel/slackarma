@@ -13,14 +13,20 @@ router.post('/add', function(req, res, next){
 
   console.log(req.body);
 
-  var name = req.body.text.split('++ ');
+  var name = req.body.text;
   var team = req.body.team_id;
+  name = name.split('++');
   name = name[0];
   name = name.replace(/\s/g, '');
   console.log(name);
 
   var queryString = "SELECT * FROM users WHERE name = '"+name+"' and team = '"+team+"'";
   console.log(queryString);
+
+  var json = {
+
+    "text":"Rep added"
+  }
 
   pg.connect(connectionString, function(err, client, done){
 
@@ -51,7 +57,8 @@ router.post('/add', function(req, res, next){
 
             console.error('nothing')
             client.query('INSERT INTO users(name, team, rep) values($1, $2, $3)', [name, team, 1]);
-            res.send('You gave '+name+' a reputation point. '+name+' now has 1 reputation point.');
+            // res.send('You gave '+name+' a reputation point. '+name+' now has 1 reputation point.');
+            res.json(json)
 
 
         }
