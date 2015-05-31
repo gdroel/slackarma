@@ -19,7 +19,7 @@ router.post('/add', function(req, res, next){
   // name = name.split('++ ');
   // name = name[0];
   // name = name.replace(/\s/g, '');
-  name.trim("++ ");
+  name = name.trim("++ ");
   console.log(name);
 
   var queryString = "SELECT * FROM users WHERE name = '"+name+"' and team = '"+team+"'";
