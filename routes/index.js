@@ -28,6 +28,7 @@ router.post('/add', function(req, res, next){
 
         if(err) {
           console.log(err);
+          res.send(err);
         }
 
         if(result.rows.length > 0){
