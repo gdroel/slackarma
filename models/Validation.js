@@ -10,12 +10,12 @@ var Validation = function(name, username, callback){
 
       var response = {
 
-        "text":"You can't give reputation to yourself, narcissist."
+        "text":"You can't give karma to yourself, narcissist."
 
       }
 
       this.callback(response)
-      console.log("You can't give reputation to yourself, narcissist.");
+      console.log("You can't give karma to yourself, narcissist.");
       return false;
 
     }
@@ -24,19 +24,15 @@ var Validation = function(name, username, callback){
 
       var response = {
 
-        "text": "Wrong syntax. Give karma like ++ @someone"
+        "text": "You used the wrong syntax. Give karma like \"++ @someone\""
       }
+      
       this.callback(response)
       console.log("Wrong syntax. Give karma like ++ @someone");
       return false;
     }
 
     else if(this.checkFirstCharacter() == true && this.checkIfSameUsername() == true){
-
-      var response = {
-
-        "none": "No response"
-      }
 
       return true;
 
