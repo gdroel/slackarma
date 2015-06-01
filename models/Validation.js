@@ -1,6 +1,7 @@
 var Validation = function(name, username, callback){
 
   this.name = name;
+  this.username = username;
   this.callback = callback;
 
   this.check = function(){
@@ -12,13 +13,14 @@ var Validation = function(name, username, callback){
         "text":"You can't give reputation to yourself, narcissist."
 
       }
+
       this.callback(response)
       console.log("You can't give reputation to yourself, narcissist.");
       return false;
 
     }
 
-    if(this.checkFirstCharacter() == false){
+    else if(this.checkFirstCharacter() == false){
 
       var response = {
 
@@ -29,7 +31,7 @@ var Validation = function(name, username, callback){
       return false;
     }
 
-    if(this.checkFirstCharacter() == true && this.checkIfSameUsername() == true){
+    else if(this.checkFirstCharacter() == true && this.checkIfSameUsername() == true){
 
       var response = {
 
