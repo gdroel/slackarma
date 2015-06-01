@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var User = require("../models/User");
+var Validation = require("../models/Validation");
+
 
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/slackrep';
@@ -11,64 +14,30 @@ router.get('/', function(req, res, next) {
 
 router.post('/add', function(req, res, next){
 
-  var name = req.body.text;
-  console.log("REQ BODY TEXT"+req.body.text)
-  var team = req.body.team_id;
-  // name = name.split('++ ');
-  // name = name[0];
-  // name = name.replace(/\s/g, '');
-  name = name.replace("++ ", "")
-  console.log(name);
+  var sendResponse = function(json){
 
-  var queryString = "SELECT * FROM users WHERE name = '"+name+"' and team = '"+team+"'";
-  console.log(queryString);
+    res.json(json)
 
-  var json = {
-
-    "text":"Rep added"
   }
 
-  pg.connect(connectionString, function(err, client, done){
+  var name = req.body.text;
+  var team = req.body.team_id;
+  var username = req.body.user_name; //Person who is giving karma
 
-      client.query(queryString, function(err, result){
+  name = name.replace("++ ", "");
+  name = name.replace(/\s+/g, '');
 
-        if(err) {
-          console.log(err);
-          res.send(err);
-        }
+  //just by creating a user object you automatically update a users
+  // reputation or create a new user
 
-        if(result.rows.length > 0){
+  var validation = new Validation(name, username, sendResponse);
 
-            console.log('WE ARE UPDATAING');
-
-            var user = result.rows[0];
-            var rep = user.rep;
-            rep = rep + 1;
-
-            var updateString = "UPDATE users SET rep="+rep+" WHERE name='"+name+"' and team='"+team+"'";
-            console.log(updateString);
-            client.query(updateString);
-
-
-            console.log(result.rows[0].name);
-            res.send('You gave '+name+' a reputation point. '+name+' now has '+rep+' reputation points.');
-
-        }else{
-
-            console.error('nothing')
-            client.query('INSERT INTO users(name, team, rep) values($1, $2, $3)', [name, team, 1]);
-            // res.send('You gave '+name+' a reputation point. '+name+' now has 1 reputation point.');
-            res.json(json)
-
-
-        }
-
-
-      });
-
-
-  });
-
+  if(validation.check() == true){
+    console.log('lets create a new user');
+    var user = new User(name, team, sendResponse);
+  }else{
+    console.log('validation failed');
+  }
 
 });
 
