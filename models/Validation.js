@@ -1,12 +1,12 @@
 var Validation = function(name, username, callback){
 
-  this.name = name;
+  this.hname = name;
   this.username = username;
   this.callback = callback;
 
   this.check = function(){
 
-    console.log("scope check:"+this.name)
+    console.log("scope check:"+this.hname)
     if(this.checkIfSameUsername() == false){
 
       var response = {
@@ -25,7 +25,7 @@ var Validation = function(name, username, callback){
 
       var response = {
 
-        "text": "You used the wrong syntax. Give karma like \"++ @someone\""
+        "text": "There was an error. Give karma like this: \"++ @someone\""
       }
 
       this.callback(response)
