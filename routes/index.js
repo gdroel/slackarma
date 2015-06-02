@@ -3,10 +3,6 @@ var router = express.Router();
 var User = require("../models/User");
 var Validation = require("../models/Validation");
 
-
-var pg = require('pg');
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/slackrep';
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -14,10 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/add', function(req, res, next){
 
+
+  //this is called whenever a model is finished processing data
   var sendResponse = function(json){
-
     res.json(json)
-
   }
 
   var name = req.body.text;

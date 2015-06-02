@@ -44,6 +44,10 @@ var Validation = function(name, username, callback){
 
   }
 
+  //Makes sure that the karma-giver users a valid username,
+  //such as @gabe instead of saying gabe. It also magically covers a
+  //lot of different use cases, such as someone typing ++kjsdfalds
+
   this.checkFirstCharacter = function(){
 
     if(this.name != "leaderboard"){

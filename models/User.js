@@ -64,6 +64,7 @@ User.prototype.updateRep = function(result, client, name, team, callback){
   }
 
   callback(response);
+  client.end();
 
 }
 
@@ -79,6 +80,7 @@ User.prototype.newUser = function(client, name, team, callback){
   }
 
   callback(response);
+  client.end();
 
 }
 
@@ -92,13 +94,15 @@ User.prototype.leaderboard = function(client, team, callback){
   client.query(queryString, function(err, result){
 
 
-    //loops through all the users returned by query, it appends each user to a string, which
-    // is then sent in a json response.
-    for(var i=0; i<result.rows.length; i++){
-      console.log(result.rows[i].name);
-      userInfo = "*" + result.rows[i].name + "* - " + result.rows[i].rep + ' Karma\n';
-      responseString = responseString.concat(userInfo);
-    }
+  //loops through all the users returned by query, it appends each user to a string, which
+  // is then sent in a json response.
+  for(var i=0; i<result.rows.length; i++){
+
+    console.log(result.rows[i].name);
+    userInfo = "*" + result.rows[i].name + "* - " + result.rows[i].rep + ' Karma\n';
+    responseString = responseString.concat(userInfo);
+
+  }
 
   console.log('RESPONSE STRING '+responseString);
 
@@ -109,13 +113,10 @@ User.prototype.leaderboard = function(client, team, callback){
   }
 
   callback(json);
+  client.end();
 
   });
 
 }
 
-//connect init
-//updateRep
-//newUser
-//checkRep
 module.exports = User;
