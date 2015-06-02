@@ -9,6 +9,7 @@ var Validation = function(name, username, callback){
     // Note: check if same username is completely broken. You still can't
     // give karma to yourself, but for some reason when username is passed
     // as a parameter it becomes a weird string like: <@U04RL0M1F>
+
     if(this.checkIfSameUsername() == false){
 
       var response = {
@@ -45,13 +46,20 @@ var Validation = function(name, username, callback){
 
   this.checkFirstCharacter = function(){
 
-    var firstCharacter = this.name.substring(0, 1);
+    if(this.name != "leaderboard"){
 
-    if(firstCharacter === "@"){
-      return true
-    }
-    else{
-      return false
+      var firstCharacter = this.name.substring(0, 1);
+
+      if(firstCharacter == "@"){
+        return true;
+      }
+      else{
+        return false;
+      }
+
+    }else{
+
+      return true;
     }
 
   }

@@ -24,11 +24,10 @@ router.post('/add', function(req, res, next){
   var team = req.body.team_id;
   var username = req.body.user_name.toLowerCase(); //Person who is giving karma
 
-  console.log('THE USERNAME IS'+username);
-
   name = name.replace("++ ", "");
   name = name.replace(/\s+/g, '');
 
+  console.log('the name is '+name);
   //just by creating a user object you automatically update a users
   // reputation or create a new user
 

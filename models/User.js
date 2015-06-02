@@ -7,17 +7,21 @@ var User = function(name, team, callback){
     this.team = team;
     this.callback = callback
 
-    console.log('THIS TEAM IS '+this.team);
-
     //Connect to the Database
     pg.connect(connectionString, function(err, client, done){
       if(err){
         console.error(err);
       }
 
-      //Calls function which checks whether the User on that team has any rep yet.
-      User.prototype.checkRep.call(User, client, name, team, callback);
+      if (name != "leaderboard"){
 
+        console.log("THE NAME IS "+name);
+        //Calls function which checks whether the User on that team has any rep yet.
+        User.prototype.checkRep.call(User, client, name, team, callback);
+      }
+      else{
+        User.prototype.leaderboard.call(User, client, team, callback);
+      }
     });
 }
 
@@ -47,15 +51,12 @@ User.prototype.checkRep = function(client, name, team, callback){
 //Updates a users reputation
 User.prototype.updateRep = function(result, client, name, team, callback){
 
-  console.log('da name is '+this.name)
   var user = result.rows[0];
   var rep = user.rep;
   rep = rep + 1;
 
   var updateString = "UPDATE users SET rep="+rep+" WHERE name='"+name+"' and team='"+team+"'";
   client.query(updateString);
-
-  console.log('updated Rep');
 
   var response = {
 
@@ -76,15 +77,38 @@ User.prototype.newUser = function(client, name, team, callback){
     "text":"Rep added"
   }
 
-  // res.send(200);
-
   var response = {
 
     "none":"no response"
   }
 
-  console.log('new user');
   callback(response);
+
+}
+
+User.prototype.leaderboard = function(client, team, callback){
+
+  var queryString = "SELECT * FROM users WHERE team ='"+team+"' ORDER BY rep";
+  console.log(queryString);
+  var responseString = "";
+  client.query(queryString, function(err, result){
+
+    for(var i=0; i<result.rows.length; i++){
+      console.log(result.rows[i].name);
+      userInfo = result.rows[i].name + " - " + result.rows[i].rep + '\n';
+      responseString = responseString.concat(userInfo);
+    }
+
+  console.log('RESPONSE STRING '+responseString);
+
+  var json = {
+
+    "text":responseString
+  }
+  
+  callback(json);
+
+  });
 
 }
 
