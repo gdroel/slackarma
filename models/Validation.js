@@ -1,12 +1,14 @@
 var Validation = function(name, username, callback){
 
-  this.hname = name;
+  this.name = name;
   this.username = username;
   this.callback = callback;
 
   this.check = function(){
 
-    console.log("scope check:"+this.hname)
+    // Note: check if same username is completely broken. You still can't
+    // give karma to yourself, but for some reason when username is passed
+    // as a parameter it becomes a weird string like: <@U04RL0M1F>
     if(this.checkIfSameUsername() == false){
 
       var response = {
@@ -25,7 +27,7 @@ var Validation = function(name, username, callback){
 
       var response = {
 
-        "text": "There was an error. Give karma like this: \"++ @someone\""
+        "text": "You used the wrong syntax. Give karma like \"++ @someone\""
       }
 
       this.callback(response)
@@ -41,9 +43,7 @@ var Validation = function(name, username, callback){
 
   }
 
-  this.checkFirstCharacter = function(name, username){
-
-    console.log("scope char:"+this.name)
+  this.checkFirstCharacter = function(){
 
     var firstCharacter = this.name.substring(0, 1);
 
