@@ -22,7 +22,9 @@ router.post('/add', function(req, res, next){
 
   var name = req.body.text;
   var team = req.body.team_id;
-  var username = req.body.user_name; //Person who is giving karma
+  var username = req.body.user_name.toLowerCase(); //Person who is giving karma
+
+  console.log('THE USERNAME IS'+username);
 
   name = name.replace("++ ", "");
   name = name.replace(/\s+/g, '');
