@@ -88,7 +88,7 @@ User.prototype.newUser = function(client, name, team, callback){
 
 User.prototype.leaderboard = function(client, team, callback){
 
-  var queryString = "SELECT * FROM users WHERE team ='"+team+"' ORDER BY rep";
+  var queryString = "SELECT * FROM users WHERE team ='"+team+"' ORDER BY rep DESC";
   console.log(queryString);
   var responseString = "";
   client.query(queryString, function(err, result){
@@ -105,7 +105,7 @@ User.prototype.leaderboard = function(client, team, callback){
 
     "text":responseString
   }
-  
+
   callback(json);
 
   });
