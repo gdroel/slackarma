@@ -6,6 +6,7 @@ var Validation = function(name, username, callback){
 
   this.check = function(){
 
+    console.log("scope check:"+this.name)
     if(this.checkIfSameUsername() == false){
 
       var response = {
@@ -26,7 +27,7 @@ var Validation = function(name, username, callback){
 
         "text": "You used the wrong syntax. Give karma like \"++ @someone\""
       }
-      
+
       this.callback(response)
       console.log("Wrong syntax. Give karma like ++ @someone");
       return false;
@@ -40,7 +41,9 @@ var Validation = function(name, username, callback){
 
   }
 
-  this.checkFirstCharacter = function(){
+  this.checkFirstCharacter = function(name, username){
+
+    console.log("scope char:"+this.name)
 
     var firstCharacter = this.name.substring(0, 1);
 
@@ -57,6 +60,8 @@ var Validation = function(name, username, callback){
   this.checkIfSameUsername = function(){
 
     var username = "@"+this.username;
+    console.log('username'+username);
+    console.log('name'+this.name);
     if(username == this.name){
       return false
     }else{
