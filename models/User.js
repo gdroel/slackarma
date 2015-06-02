@@ -95,7 +95,7 @@ User.prototype.leaderboard = function(client, team, callback){
 
     for(var i=0; i<result.rows.length; i++){
       console.log(result.rows[i].name);
-      userInfo = result.rows[i].name + " - " + result.rows[i].rep + '\n';
+      userInfo = "*" + result.rows[i].name + "* - *" + result.rows[i].rep + '*\n';
       responseString = responseString.concat(userInfo);
     }
 
