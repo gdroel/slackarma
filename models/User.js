@@ -72,10 +72,6 @@ User.prototype.updateRep = function(result, client, name, team, callback){
 User.prototype.newUser = function(client, name, team, callback){
 
   client.query('INSERT INTO users(name, team, rep) values($1, $2, $3)', [name, team, 1]);
-  var json = {
-
-    "text":"Rep added"
-  }
 
   var response = {
 
@@ -86,6 +82,8 @@ User.prototype.newUser = function(client, name, team, callback){
 
 }
 
+
+//Gets leaderboard
 User.prototype.leaderboard = function(client, team, callback){
 
   var queryString = "SELECT * FROM users WHERE team ='"+team+"' ORDER BY rep DESC";
@@ -93,9 +91,12 @@ User.prototype.leaderboard = function(client, team, callback){
   var responseString = "";
   client.query(queryString, function(err, result){
 
+
+    //loops through all the users returned by query, it appends each user to a string, which
+    // is then sent in a json response.
     for(var i=0; i<result.rows.length; i++){
       console.log(result.rows[i].name);
-      userInfo = "*" + result.rows[i].name + "* - *" + result.rows[i].rep + '*\n';
+      userInfo = "*" + result.rows[i].name + "* - " + result.rows[i].rep + ' Karma\n';
       responseString = responseString.concat(userInfo);
     }
 
@@ -103,7 +104,8 @@ User.prototype.leaderboard = function(client, team, callback){
 
   var json = {
 
-    "text":responseString
+    "text":responseString,
+    "username":"karma-bot"
   }
 
   callback(json);
