@@ -60,7 +60,8 @@ User.prototype.updateRep = function(result, client, name, team, callback){
 
   var response = {
 
-    "none":"no response"
+    "none":"no response",
+    "parse":"none"
   }
 
   callback(response);
@@ -76,7 +77,8 @@ User.prototype.newUser = function(client, name, team, callback){
 
   var response = {
 
-    "none":"no response"
+    "none":"no response",
+    "parse":"none"
   }
 
   callback(response);
@@ -109,7 +111,8 @@ User.prototype.leaderboard = function(client, team, callback){
   var json = {
 
     "text":responseString,
-    "username":"karma-bot"
+    "username":"karma-bot",
+    "parse":"none"
   }
 
   callback(json);

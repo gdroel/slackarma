@@ -1,2 +1,53 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+
+    <title>Slackarma - Give Reputation to your Slack Teammates</title>
+
+  </head>
+  <body>
+    <div class="col-sm-12 hero-box">
+      <h1 class="hero">Slackarma</h1>
+      <p class="hero">Give karma to your teamate with a simple message, ++ @teammate.</p>
+    </div>
+    <!-- <div class="col-md-12 hero-img">
+      <img src="/images/chat.png">
+    </div> -->
+    <div class="setup col-sm-8 col-sm-offset-2">
+      <h2 class="setup-title">The One Minute Setup</h2>
+      <hr>
+      <ol>
+        <li>
+          <h3>Add Outgoing Webhook.</h3>
+          <p>
+            Go to https://my.slack.com/services/new/outgoing-webhook and add a new outgoing
+            webhook.
+          </p>
+        </li>
+        <li>
+          <h3>Populate Information</h3>
+          <p>
+            Set the Channel to "Any." Set the Trigger Words to "++" (without the quotation marks)
+            Enter in slackarma.gaberoeloffs.com/add as the URL. Customize the username and profile
+            picture as you wish. :)
+          </p>
+        </li>
+        <li>
+          Finally do this
+        </li>
+      </ol>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>

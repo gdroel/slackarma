@@ -14,7 +14,8 @@ var Validation = function(name, username, callback){
 
       var response = {
 
-        "text":"You can't give karma to yourself, narcissist."
+        "text":"You can't give karma to yourself, narcissist.",
+        "parse":"none"
 
       }
 
@@ -28,7 +29,8 @@ var Validation = function(name, username, callback){
 
       var response = {
 
-        "text": "You used the wrong syntax. Give karma like \"++ @someone\""
+        "text": "You used the wrong syntax. Give karma like \"++ @someone\"",
+        "parse":"none"
       }
 
       this.callback(response)

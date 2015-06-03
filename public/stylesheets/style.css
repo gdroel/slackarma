@@ -1,8 +1,67 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+h1, h2, h3, li, p{
+
+  font-family: 'Lato';
+
 }
 
-a {
-  color: #00B7FF;
+h2{
+
+  font-weight: 700;
+}
+
+li{
+
+  padding: 10px;
+}
+
+p{
+
+  font-size: 20px;
+}
+
+h1.hero{
+
+  color:white;
+  text-align: center;
+  font-size: 100px;
+  margin-top: 60px;
+  font-weight: 700;
+
+}
+
+p.hero{
+
+  color:white;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.setup-title{
+
+  text-align: center;
+}
+ol{
+  
+}
+.setup{
+
+  margin-top: -25px;
+  background: #F8F8F8;
+  box-shadow: 10px 10px 5px #888888;
+
+}
+
+.hero-img{
+
+  margin: 0 auto;
+  width: 25%;
+  height: auto;
+}
+
+.hero-box{
+
+  background-color: red;
+  padding-bottom: 50px;
+
 }
