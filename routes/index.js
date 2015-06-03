@@ -5,8 +5,14 @@ var Validation = require("../models/Validation");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Slackarma - Give Teammate Reputation Points in Slack' });
 });
+
+router.get('/add', function(req, res, next) {
+  res.render('index', { title: 'Slackarma - Give Teammate Reputation Points in Slack' });
+});
+
+
 
 router.post('/add', function(req, res, next){
 
@@ -23,7 +29,7 @@ router.post('/add', function(req, res, next){
   name = name.replace(/\s+/g, '');
 
   console.log('the name is '+name);
-  
+
   //just by creating a user object you automatically update a users
   // reputation or create a new user
 
