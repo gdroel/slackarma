@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/add', function(req, res, next){
 
-
   //this is called whenever a model is finished processing data
   var sendResponse = function(json){
     res.json(json)
@@ -24,6 +23,7 @@ router.post('/add', function(req, res, next){
   name = name.replace(/\s+/g, '');
 
   console.log('the name is '+name);
+  
   //just by creating a user object you automatically update a users
   // reputation or create a new user
 

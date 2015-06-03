@@ -73,15 +73,17 @@ var Validation = function(name, username, callback){
   //Makes sure someone isn't giving karma to themselves
   this.checkIfSameUsername = function(){
 
-    var username = "@"+this.username;
-    console.log('username'+username);
-    console.log('name'+this.name);
-    if(username == this.name){
-      return false
-    }else{
-      return true;
-    }
-  }
+  //   var username = "@"+this.username;
+  //   console.log('username'+username);
+  //   console.log('name'+this.name);
+  //   if(username == this.name){
+  //     return false
+  //   }else{
+  //     return true;
+  //   }
+  // }
+
+  return true;
 
 }
 
