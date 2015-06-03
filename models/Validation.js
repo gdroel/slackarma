@@ -85,6 +85,8 @@ var Validation = function(name, username, callback){
 
   return true;
 
+  }
+
 }
 
 module.exports = Validation;
