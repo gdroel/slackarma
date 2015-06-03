@@ -29,7 +29,7 @@ var Validation = function(name, username, callback){
 
       var response = {
 
-        "text": "You used the wrong syntax. Give karma like \"++ @someone\"",
+        "text": "You used the wrong syntax. Give karma like \"++ @someone\""+this.name,
         "parse":"none"
       }
 
