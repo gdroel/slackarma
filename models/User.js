@@ -65,7 +65,7 @@ User.prototype.updateRep = function(result, client, name, team, callback){
   }
 
   callback(response);
-  client.end();
+  // client.end();
 
 }
 
@@ -82,7 +82,7 @@ User.prototype.newUser = function(client, name, team, callback){
   }
 
   callback(response);
-  client.end();
+  // client.end();
 
 }
 
@@ -116,7 +116,7 @@ User.prototype.leaderboard = function(client, team, callback){
   }
 
   callback(json);
-  client.end();
+  // client.end();
 
   });
 
