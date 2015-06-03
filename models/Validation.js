@@ -30,7 +30,7 @@ var Validation = function(name, username, callback){
     }
 
   }
-  
+
   // I have to say, this function is pretty clever. If I type in @gabe (who is in a team on slack),
   // slack doesn't send the plaintext "@gabe." It instead sends this weird slack code
   // formatted like <@#####> that auto hyperlinks to a user in slack. If @gabe is not on a team in slack,

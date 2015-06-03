@@ -42,12 +42,23 @@ p.hero{
   text-align: center;
 }
 ol{
-  
+
+}
+
+.footer{
+
+  margin-top: 20px;
+  background: red;
+  color:white;
+  padding: 15px;
+  text-align: center;
+  font-size: 13px;
 }
 .setup{
 
   margin-top: -25px;
-  background: #F8F8F8;
+  /*background: #F8F8F8;*/
+  background: white;
   box-shadow: 10px 10px 5px #888888;
 
 }
@@ -64,4 +75,10 @@ ol{
   background-color: red;
   padding-bottom: 50px;
 
+}
+
+.underline{
+
+  text-decoration: underline;
+  color:white;
 }
