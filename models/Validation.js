@@ -29,7 +29,7 @@ var Validation = function(name, username, callback){
 
       var response = {
 
-        "text": "You used the wrong syntax. Give karma like \"++ @someone\""+this.name,
+        "text": "You used the wrong syntax or that person isn't on your team. Give karma like \"++ @username\""+this.name,
         "parse":"none"
       }
 
@@ -54,9 +54,9 @@ var Validation = function(name, username, callback){
 
     if(this.name != "leaderboard"){
 
-      var firstCharacter = this.name.substring(0, 1);
+      var firstCharacters = this.name.substring(0, 2);
 
-      if(firstCharacter == "@"){
+      if(firstCharacters == "<@"){
         return true;
       }
       else{
