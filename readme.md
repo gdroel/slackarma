@@ -1,6 +1,6 @@
 #Slackarma
 
-Set up info is at [slackarma.gaberoeloffs.com](slackarma.gaberoeloffs.com).
+Set up info is at [slackarma.gaberoeloffs.com](http://slackarma.gaberoeloffs.com).
 
 This is the source code of Slackarma. I hope I commented it enough so
 that you have at least an inkling of understanding of what I'm
