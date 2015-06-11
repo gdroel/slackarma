@@ -1,4 +1,4 @@
-#Slackarma
+# Slackarma
 
 Set up info is at [slackarma.gaberoeloffs.com](http://slackarma.gaberoeloffs.com).
 
@@ -15,7 +15,7 @@ Most of the important code resides in routes/index.js and in the models folder.
 Speaking of the models folder, to set up the table for Slackarma, run the command
 `node /models/database.js`. This will create the table.
 
-###Pull Requests!
+### Pull Requests!
 
 As long as your PR doesn't contain malware or PHP (same difference I guess?) I
 will probably accept it.
