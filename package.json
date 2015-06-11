@@ -1,7 +1,9 @@
 {
-  "name": "rep",
-  "version": "0.0.0",
+  "name": "slackarma",
+  "description": "Give your teammates reputation points in Slack",
+  "version": "0.1.0",
   "private": true,
+  "repository": "gdroel/slackarma",
   "scripts": {
     "start": "node ./bin/www"
   },
