@@ -15,7 +15,7 @@ var User = function(name, team, callback){
 
       if (name != "leaderboard"){
 
-        console.log("THE NAME IS "+name);
+        console.log("THE NAME IS "+ name);
         //Calls function which checks whether the User on that team has any rep yet.
         User.prototype.checkRep.call(User, client, name, team, callback);
       }
