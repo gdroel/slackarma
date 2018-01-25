@@ -95,6 +95,9 @@ User.prototype.leaderboard = function(client, team, callback){
   var responseString = "";
   client.query(queryString, function(err, result){
 
+  if (err){
+    console.log(error);
+  }
 
   //loops through all the users returned by query, it appends each user to a string, which
   // is then sent in a json response.
