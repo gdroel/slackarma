@@ -96,7 +96,7 @@ User.prototype.leaderboard = function(client, team, callback){
   client.query(queryString, function(err, result){
 
   if (err){
-    console.log(error);
+    console.log(err);
   }
 
   //loops through all the users returned by query, it appends each user to a string, which
